@@ -7,6 +7,7 @@ var count = 0;
 const result = document.getElementById('result');
 const button = document.getElementById('btn');
 const Turn = document.getElementById('turn');
+const line = document.getElementById('line');
 
 // const box = document.getElementsByClassName('box'); // It give HTMLCollection
 const box = document.querySelectorAll('.box'); // It gives a NodeList.
@@ -31,6 +32,7 @@ button.addEventListener('click', () => {
     e.innerHTML = ``;
   })
   result.innerHTML = ``;
+  line.style.display = 'none';
 })
 
 // Add Event Listener for every box
@@ -71,6 +73,18 @@ function checkWinInRow() {
         }
         if (count === 3) {
           count = 0;
+          line.style.transform = 'rotate(90deg)';
+          line.style.display = 'block';
+          line.style.left = '50%';
+          if (i === 1) {
+            line.style.top = '-34%';
+          }
+          else if (i === 2) {
+            line.style.top = '0%';
+          }
+          else {
+            line.style.top = '34%';
+          }
           return true;
         }
       }
@@ -98,6 +112,18 @@ function checkWinInCol() {
         }
         if (count === 3) {
           count = 0;
+          line.style.transform = 'rotate(0deg)';
+          line.style.display = 'block';
+          line.style.top = '0%';
+          if (i === 1) {
+            line.style.left = '15%';
+          }
+          else if (i === 2) {
+            line.style.left = '49%';
+          }
+          else {
+            line.style.left = '83%';
+          }
           return true;
         }
       }
@@ -124,6 +150,10 @@ function checkWinInCros1() {
   }
   if (count === 3) {
     count = 0;
+    line.style.transform = 'rotate(135deg)';
+    line.style.display = 'block';
+    line.style.left = '50%';
+    line.style.top = '1%';
     return true;
   }
   else {
@@ -145,6 +175,10 @@ function checkWinInCros2() {
   }
   if (count === 3) {
     count = 0;
+    line.style.transform = 'rotate(45deg)';
+    line.style.display = 'block';
+    line.style.left = '50%';
+    line.style.top = '-1%';
     return true;
   }
   else {
