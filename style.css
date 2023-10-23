@@ -11,6 +11,7 @@
   align-items: center;
   justify-content: space-around;
   gap: 21px;
+  padding: 21px;
 }
 
 .container {
@@ -61,7 +62,7 @@
   color: white;
 }
 
-@media (width<=651px) {
+@media (width<=751px) {
   .bigContainer {
     flex-direction: column;
   }
